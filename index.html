@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Визг Свиньи 🐷</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe4e1;
+            font-family: sans-serif;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .pig-button {
+            width: 80vw;
+            height: 80vw;
+            max-width: 350px;
+            max-height: 350px;
+            background-color: #ffb6c1;
+            border: 15px solid #ff69b4;
+            border-radius: 50%;
+            font-size: 8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 15px 0 #db7093, 0 25px 20px rgba(0,0,0,0.3);
+            transition: all 0.1s ease;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .pig-button:active {
+            transform: translateY(10px);
+            box-shadow: 0 5px 0 #db7093, 0 10px 10px rgba(0,0,0,0.3);
+            background-color: #ffc0cb;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Огромная кнопка-свинья -->
+    <button class="pig-button" id="squealBtn" aria-label="Визжать">🐷</button>
+
+    <!-- Аудиофайл с реалистичным визгом (свободная лицензия) -->
+    <audio id="pigSound" src="https://zapsplat.com" preload="auto"></audio>
+
+    <script>
+        const button = document.getElementById('squealBtn');
+        const sound = document.getElementById('pigSound');
+
+        // Функция воспроизведения звука
+        function playSqueal(e) {
+            e.preventDefault();
+            sound.currentTime = 0; // Сброс в начало, чтобы можно было спамить
+            sound.play().catch(err => console.log("Ожидание клика пользователя..."));
+        }
+
+        // Поддержка кликов и тачей на смартфонах без задержек
+        button.addEventListener('click', playSqueal);
+        button.addEventListener('touchstart', playSqueal, { passive: false });
+    </script>
+</body>
+</html>
