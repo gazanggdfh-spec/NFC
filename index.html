@@ -43,25 +43,16 @@
     </style>
 </head>
 <body>
-
-    <!-- Огромная кнопка-свинья -->
     <button class="pig-button" id="squealBtn" aria-label="Визжать">🐷</button>
-
-    <!-- Аудиофайл с реалистичным визгом (свободная лицензия) -->
-    <audio id="pigSound" src="https://zapsplat.com" preload="auto"></audio>
-
+    <audio id="pigSound" src="https://zvukitop.com" preload="auto"></audio>
     <script>
         const button = document.getElementById('squealBtn');
         const sound = document.getElementById('pigSound');
-
-        // Функция воспроизведения звука
         function playSqueal(e) {
             e.preventDefault();
-            sound.currentTime = 0; // Сброс в начало, чтобы можно было спамить
-            sound.play().catch(err => console.log("Ожидание клика пользователя..."));
+            sound.currentTime = 0;
+            sound.play().catch(err => console.log("Ожидание клика..."));
         }
-
-        // Поддержка кликов и тачей на смартфонах без задержек
         button.addEventListener('click', playSqueal);
         button.addEventListener('touchstart', playSqueal, { passive: false });
     </script>
