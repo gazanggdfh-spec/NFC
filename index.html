@@ -47,18 +47,17 @@
     <!-- Огромная кнопка-свинья -->
     <button class="pig-button" id="squealBtn" aria-label="Визжать">🐷</button>
 
-    <!-- Новый проверенный и вечный звук визга свиньи -->
-    <audio id="pigSound" src="https://wikimedia.org" preload="auto"></audio>
+    <!-- Железно работающий MP3 звук визга свиньи -->
+    <audio id="pigSound" src="https://iofom.com" preload="auto"></audio>
 
     <script>
         const button = document.getElementById('squealBtn');
         const sound = document.getElementById('pigSound');
 
-        // Функция воспроизведения звука
         function playSqueal(e) {
             e.preventDefault();
             sound.currentTime = 0; // Чтобы можно было спамить нажатиями
-            sound.play().catch(err => console.log("Ожидание клика..."));
+            sound.play().catch(err => alert("Пожалуйста, включите звук мультимедиа!"));
         }
 
         // Поддержка кликов и тачей на смартфонах без задержек
